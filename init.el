@@ -6,11 +6,11 @@
 
 ;; backspace C-h 2012/5/29
 	(global-set-key "\C-h" 'delete-backward-char)
-;;ƒr[ƒv‰¹Á‚· 2012/11/12
+;;ãƒ“ãƒ¼ãƒ—éŸ³æ¶ˆã™ 2012/11/12
 	(setq visible-bell t)
 ;; kakko 2012/12/9
 	(show-paren-mode t)
-;; Carbon Emacs‚Ìİ’è‚Å“ü‚ê‚ç‚ê‚½. ƒƒjƒ…[‚ğ‰B‚µ‚½‚èD
+;; Carbon Emacsã®è¨­å®šã§å…¥ã‚Œã‚‰ã‚ŒãŸ. ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’éš ã—ãŸã‚Šï¼
 	(custom-set-variables
 	 '(display-time-mode t)
 	 '(tool-bar-mode nil)
@@ -25,7 +25,13 @@
 			    (set-frame-parameter nil 'alpha 80)
 			    )
 
-;; C-x C-f ‰Šú’l
+;; utf-8 2013/02/9
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+;; C-x C-f åˆæœŸå€¤
 (setq default-directory "c:/cygwin/home/tomohiro/")
 ;;auto install
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install/"))
@@ -55,32 +61,32 @@
 (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
 (setq matlab-indent-function t)
 
-;; ƒ^ƒCƒgƒ‹ƒo[‚Éƒtƒ@ƒCƒ‹‚Ìƒtƒ‹ƒpƒX•\¦
+;; ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ã«ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ãƒ«ãƒ‘ã‚¹è¡¨ç¤º
 (setq frame-title-format
       (format "%%f - Emacs@%s" (system-name)))
 
-;; Š‡ŒÊ‚Ì”ÍˆÍ“à‚ğ‹­’²•\¦
+;; æ‹¬å¼§ã®ç¯„å›²å†…ã‚’å¼·èª¿è¡¨ç¤º
 (show-paren-mode t)
 (setq show-paren-delay 0)
 (setq show-paren-style 'expression)
 
-;; Š‡ŒÊ‚Ì”ÍˆÍF
+;; æ‹¬å¼§ã®ç¯„å›²è‰²
 (set-face-background 'show-paren-match-face "#500")
 
-;; s”Ô†•\¦
+;; è¡Œç•ªå·è¡¨ç¤º
 (global-linum-mode t)
 (set-face-attribute 'linum nil
                     :foreground "#800"
                     :height 0.9)
 
-;; ƒXƒNƒ[ƒ‹ƒo[”ñ•\¦
+;; ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ãƒãƒ¼éè¡¨ç¤º
 (set-scroll-bar-mode nil)
 
-;; yes or no‚ğy or n
+;; yes or noã‚’y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; C-Ret ‚Å‹éŒ`‘I‘ğ
-;; Ú‚µ‚¢ƒL[ƒoƒCƒ“ƒh‘€ìFhttp://dev.ariel-networks.com/articles/emacs/part5/
+;; C-Ret ã§çŸ©å½¢é¸æŠ
+;; è©³ã—ã„ã‚­ãƒ¼ãƒã‚¤ãƒ³ãƒ‰æ“ä½œï¼šhttp://dev.ariel-networks.com/articles/emacs/part5/
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
 
@@ -96,9 +102,9 @@
 (setq YaTeX-dvi2-command-ext-alist
       '(("dviout" . ".dvi")
         ("psv" . ".ps")
-        ("TeXworks\\|SumatraPDF\\|evince\\|okular\\|firefox\\|chrome\\|AcroRd32\\|pdfopen" . ".pdf")))  ;;C-c t p ‚Ì‚Æ‚«*.pdf ‚ÆÅ‰‚©‚ç•\¦
+        ("TeXworks\\|SumatraPDF\\|evince\\|okular\\|firefox\\|chrome\\|AcroRd32\\|pdfopen" . ".pdf")))  ;;C-c t p ã®ã¨ã*.pdf ã¨æœ€åˆã‹ã‚‰è¡¨ç¤º
 (setq tex-command "ptex2pdf -l -ot \"-kanji=utf8 -guess-input-enc -synctex=1\"")
-;(setq dvi2-command "c:/w32tex/dviout/dviout")                   ;;ƒRƒRdviout‚ÌƒpƒX‘‚­
+;(setq dvi2-command "c:/w32tex/dviout/dviout")                   ;;ã‚³ã‚³dvioutã®ãƒ‘ã‚¹æ›¸ã
 ;(setq dvi2-command "texworks")
 (setq dvi2-command "start SumatraPDF -reuse-instance")
 (setq dviprint-command-format "dvipdfmx %s ")
